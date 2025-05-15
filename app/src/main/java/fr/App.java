@@ -1,11 +1,18 @@
 package fr;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class App extends Application {
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) {
+
+        stage.show();
+        stage.toFront();
     }
 }
