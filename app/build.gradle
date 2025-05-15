@@ -1,0 +1,41 @@
+
+plugins {
+    id 'application'    
+    id 'org.openjfx.javafxplugin' version '0.0.14'
+}
+
+def javafxVersion = "22.0.2"    
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+
+javafx {    
+    version = "$javafxVersion"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.media' ]
+}
+
+dependencies {
+
+    compileOnly  "org.openjfx:javafx-base:$javafxVersion:sources"
+    compileOnly  "org.openjfx:javafx-controls:$javafxVersion:sources"
+    compileOnly  "org.openjfx:javafx-fxml:$javafxVersion:sources"
+    compileOnly  "org.openjfx:javafx-graphics:$javafxVersion:sources"
+    
+    compileOnly  "org.openjfx:javafx-base:$javafxVersion:javadoc"
+    compileOnly  "org.openjfx:javafx-controls:$javafxVersion:javadoc"
+    compileOnly  "org.openjfx:javafx-fxml:$javafxVersion:javadoc"
+    compileOnly  "org.openjfx:javafx-graphics:$javafxVersion:javadoc"
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+application {       
+   mainClass = 'fr.App'
+}
